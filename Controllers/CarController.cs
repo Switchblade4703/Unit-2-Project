@@ -44,6 +44,20 @@ namespace Unit_2_Project.Controllers
                     return View(car);
                 }
             }
-        }
+            [HttpGet]
+            public IActionResult Delete(int id)
+            {
+                var movie = context.Cars.Find(id);
+                return View(movie);
+            }
+
+            [HttpPost]
+            public IActionResult Delete(Cars car)
+            {
+                context.Cars.Remove(car);
+                context.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+    }
     }
 
