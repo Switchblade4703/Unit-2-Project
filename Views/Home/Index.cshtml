@@ -1,0 +1,28 @@
+﻿@model List<Cars>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<table> 
+    @foreach(Cars c in Model)
+    {
+        <tr>
+            <td>@c.Make</td>
+            <td>@c.Model</td>
+            <td>@c.Year</td>
+            <td>
+                <a asp-controller="Car"
+                   asp-action="Edit"
+                   asp-route-id="@c.Id">Edit</a>
+                <a asp-controller="Car"
+                   asp-action="Add"
+                   asp-route-id="@c.Id">Add</a>
+                <a asp-controller="Car"
+                       asp-action="Delete"
+                       asp-route-id="@c.Id">Delete</a>
+
+
+             </td>
+        </tr>
+    }
+</table>
